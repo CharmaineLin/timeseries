@@ -48,7 +48,7 @@ MSFT$NEWTIME=strptime(paste(MSFT$DATE,MSFT$TIME),format="%Y-%m-%d %H:%M:%S",tz="
 #create xts 
 rawdata=xts(MSFT[3:5], order.by=MSFT[,6])
 
-#Use only the data for normal trading hours: 9.30am ¨C 4pm
+#Use only the data for normal trading hours: 9.30am Â¨C 4pm
 data=exchangeHoursOnly(rawdata, daybegin="09:30:00", dayend = "15:59:59")
 
 #one second merge
@@ -183,7 +183,7 @@ acf(diff(as.numeric(OneH$Price),differences=1),main="diff 1 Hour acf")
 pacf(as.numeric(OneH$Price),main="1 Hour pacf")
 pacf(diff(as.numeric(OneH$Price),differences=1),main="diff 1 Hour pacf")
 
-#arma model fit?????
+#arma model fit
 fit=arma(diff(as.numeric(OneSecMerge$PRICE)), order = c(0,1), include.intercept = TRUE)
 summary(fit)
 
